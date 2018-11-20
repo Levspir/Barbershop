@@ -1,0 +1,113 @@
+/*eslint-disable no-undef */
+
+$(function() {
+  //Clear
+  $("form.login input, form.register input").focus(function() {
+    $("p.error").remove();
+    $("input").removeClass("error");
+  });
+
+  //register
+  $(".register-button").on("click", function(e) {
+    e.preventDefault();
+    $("p.error").remove();
+    $("input").removeClass("error");
+    var data = {
+      login: $("#register-login").val(),
+      password: $("#register-password").val(),
+      passwordConfirm: $("#register-password-confirm").val()
+    };
+
+    $.ajax({
+      type: "POST",
+      data: JSON.stringify(data),
+      contentType: "application/json",
+      url: "/api/auth/register"
+    }).done(function(data) {
+      console.log(data);
+      if (!data.ok) {
+        $(".register h2").after('<p class="error"> ' + data.error + "</p>");
+        if (data.fields) {
+          data.fields.forEach(function(item) {
+            $("input[name=" + item + "]").addClass("error");
+          });
+        }
+      } else {
+        //$(".register h2").after('<p class="success"> Success!</p>');
+        $(location).attr("href", "/");
+      }
+    });
+  });
+
+  //login
+  $(".login-button").on("click", function(e) {
+    e.preventDefault();
+    $("p.error").remove();
+    $("input").removeClass("error");
+
+    var data = {
+      login: $("#login-login").val(),
+      password: $("#login-password").val()
+    };
+
+    $.ajax({
+      type: "POST",
+      data: JSON.stringify(data),
+      contentType: "application/json",
+      url: "/api/auth/login"
+    }).done(function(data) {
+      console.log(data);
+      if (!data.ok) {
+        $(".login h2").after('<p class="error"> ' + data.error + "</p>");
+        if (data.fields) {
+          data.fields.forEach(function(item) {
+            $("input[name=" + item + "]").addClass("error");
+          });
+        }
+      } else {
+        //$(".login h2").after('<p class="success"> Success!</p>');
+        $(location).attr("href", "/");
+      }
+    });
+  });
+});
+
+//Make appointment
+$(function() {
+  //Clear
+  $(".appointment input").focus(function() {
+    $("p.error").remove();
+    $("input").removeClass("error");
+  });
+
+  //Make apointment
+  $(".save-button").on("click", function(e) {
+    e.preventDefault();
+
+    var data = {
+      name: $("#app-name").val(),
+      data: $("#app-data").val(),
+      number: $("#app-number").val(),
+      time: $("#select-time").val()
+    };
+    $.ajax({
+      type: "POST",
+      data: JSON.stringify(data),
+      contentType: "application/json",
+      url: "/post"
+    }).done(function(data) {
+      console.log(data);
+      if (!data.ok) {
+        $(".appointment h2").after('<p class="error"> ' + data.error + "</p>");
+        if (data.fields) {
+          data.fields.forEach(function(item) {
+            $("#app-" + item).addClass("error");
+          });
+        }
+      } else {
+        // $(".login h2").after('<p class="success"> Success!</p>');
+        // $(location).attr("href", "/");
+      }
+    });
+  });
+});

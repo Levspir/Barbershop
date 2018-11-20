@@ -1,0 +1,109 @@
+$dark: rgba(0, 0, 0, 0.5);
+$grey: #191919;
+$white: #fff;
+$black: rgb(0, 0, 0);
+$successColor: #87bf0a;
+$errorColor: #e82c0c;
+$toppading: 150px;
+
+html {
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background-color: $black;
+  color: $white;
+  margin-bottom: 200px;
+}
+.navbar {
+  opacity: 0.9;
+  background: rgb(0, 0, 0);
+  .nav-item {
+    font-size: 1.2rem;
+    padding-right: 1.4rem;
+  }
+}
+
+.overlay {
+  background-image: url(../images/overlay.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 700px;
+  .wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 700px;
+  }
+  .inner {
+    padding-top: 350px;
+  }
+}
+.catch {
+  color: $white;
+}
+.carousel {
+  border: solid, 1px, $black;
+  height: 80%;
+}
+.footer {
+  //border-top: 2px solid rgb(255, 255, 255);
+  // border-bottom: 1px solid #333;
+  position: absolute;
+  bottom: 0;
+  background: $grey;
+  width: 100%;
+}
+
+// .absolute {
+//   position: absolute;
+//   bottom: 0;
+//   left: 0%;
+// }
+.space {
+  margin-bottom: 200px;
+}
+
+.register,
+.appointment,
+.personal {
+  .inner {
+    padding-top: $toppading;
+  }
+}
+
+div.success,
+p.success,
+div.error,
+p.error {
+  background-color: lighten($successColor, 50%);
+  border: 1px solid $successColor;
+  font-size: 0.8rem;
+  padding: 1rem;
+  color: $successColor;
+  border-radius: 5px;
+}
+
+div.error,
+p.error {
+  background-color: lighten($errorColor, 45%);
+  border-color: $errorColor;
+  color: $errorColor;
+}
+
+input,
+textarea,
+select {
+  &.error {
+    border-color: $errorColor;
+    color: $errorColor;
+    &::placeholder {
+      color: lithten($errorColor, 70%);
+    }
+  }
+}

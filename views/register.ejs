@@ -1,0 +1,54 @@
+<% include layout/header.ejs %>
+<main>
+  <section class="register">
+    <div class=" inner container">
+      <div class="row">
+        <div class="col-4 m-auto">
+          <div class="card text-center bg-dark">
+            <div class="card-body bg-dark ">
+              <form class="text-white text-center register" method="POST">
+                <h2>Register</h2>
+                <div class="form-group">
+                  <label for="register-login">Username</label>
+                  <input
+                    type="text"
+                    id="register-login"
+                    name="login"
+                    placeholder="Username"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="register-password">Password</label>
+                  <input
+                    type="password"
+                    id="register-password"
+                    placeholder="Passsword"
+                    class="form-control"
+                    name="password"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="register-password-confirm"
+                    >Confirm password</label
+                  >
+                  <input
+                    type="password"
+                    placeholder="Confirm password"
+                    class="form-control"
+                    id="register-password-confirm"
+                    name="password"
+                  />
+                </div>
+                <button type="submit" class="btn btn-success register-button">
+                  Register
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<% include layout/footer.ejs %>

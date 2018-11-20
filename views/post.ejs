@@ -1,0 +1,67 @@
+<% include layout/header.ejs %>
+<main>
+  <section class="appointment">
+    <div class=" inner container">
+      <div class="row">
+        <div class="col-4 m-auto">
+          <div class="card text-center bg-dark">
+            <div class="card-body bg-dark ">
+              <form class="text-white text-center appointment" method="POST">
+                <h2>Make an appointment</h2>
+                <div class="form-group">
+                  <label for="app-name">Name</label>
+                  <input
+                    type="text"
+                    id="app-name"
+                    name="name"
+                    placeholder="Name"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="app-data">Choose data</label>
+                  <input
+                    type="data"
+                    id="app-data"
+                    placeholder="Data dd.mm.yyyy"
+                    class="form-control"
+                    value="31.08.2019"
+                    name="app-data"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="app-number">Enter your phone</label>
+                  <input
+                    type="text"
+                    placeholder="+79999999999"
+                    class="form-control"
+                    id="app-number"
+                    name="app-number"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="select-time">Choose time</label>
+                  <select class="form-control" id="select-time" name="app-time">
+                    <option value="10-00">10-00</option>
+                    <option value="11-00">11-00</option>
+                    <option value="12-00">12-00</option>
+                    <option value="13-00">13-00</option>
+                    <option value="14-00">14-00</option>
+                    <option value="15-00">15-00</option>
+                    <option value="16-00">16-00</option>
+                    <option value="17-00">17-00</option>
+                    <option value="18-00">18-00</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-success save-button">
+                  Make an appointment
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<% include layout/footer.ejs %>
